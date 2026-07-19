@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Cápsula del Tiempo</title>
+    
+    <!-- Fuentes desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Enlace al archivo de estilos CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="hero-container">
+        
+        <!-- Título principal y nombres -->
+        <header>
+            <h1>Nuestra Cápsula del Tiempo</h1>
+            <p>Cami & Jorge</p> <!-- Reemplaza con sus nombres -->
+        </header>
+
+        <!-- Bloque del Contador en Tiempo Real -->
+        <section class="contador-seccion">
+            <h2 class="contador-titulo">El tiempo que llevamos sumando momentos...</h2>
+            <div class="reloj">
+                <div class="tiempo-bloque">
+                    <span class="numero" id="dias">00</span>
+                    <span class="etiqueta">Días</span>
+                </div>
+                <div class="tiempo-bloque">
+                    <span class="numero" id="horas">00</span>
+                    <span class="etiqueta">Horas</span>
+                </div>
+                <div class="tiempo-bloque">
+                    <span class="numero" id="minutos">00</span>
+                    <span class="etiqueta">Min</span>
+                </div>
+                <div class="tiempo-bloque">
+                    <span class="numero" id="segundos">00</span>
+                    <span class="etiqueta">Seg</span>
+                </div>
+            </div>
+        </section>
+
+       
+        <a href="timeline.html" class="btn-entrar">Abrir la cápsula</a>
+
+ <!-- 
+        <div class="contenedor-anotaciones">
+   
+    <div class="seccion-individual">
+       <button class="btn-desplegable" onclick="abrirModal('Cami')">Cami ✍️</button>
+        <div class="anotador-oculto">
+            <textarea placeholder="Escribe un pensamiento..."></textarea>
+            <button>Guardar</button>
+        </div>
+    </div>
+
+    <button class="btn-central">🔒 Ver mensajes</button>
+
+   
+    <div class="seccion-individual">
+        <button class="btn-desplegable" onclick="abrirModal('Jorge')">Jorge ✍️</button>
+        <div class="anotador-oculto">
+            <textarea placeholder="Escribe un pensamiento..."></textarea>
+            <button>Guardar</button>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+   
+<div id="modal-anotador" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <h2 id="titulo-modal">Escribe para...</h2>
+        <textarea id="texto-anotacion" placeholder="Tu mensaje secreto..."></textarea>
+        <button onclick="guardarAnotacion()">Guardar Pensamiento</button>
+    </div>
+</div>
+
+     Enlace al archivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>

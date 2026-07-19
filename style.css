@@ -1,0 +1,312 @@
+/* Estilos Base / Paleta de colores */
+:root {
+    --color-fondo: #fcf8f7;
+    --color-principal: #3a3232;
+    --color-acento: #d4a373; /* Tono dorado/arena suave */
+    --color-rosa-viejo: #e8aeaf;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-principal);
+    overflow-x: hidden;
+}
+
+/* Contenedor Principal (Ocupa toda la pantalla) */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    /* Reemplaza 'tu-foto-de-fondo.jpg' por la ruta de su mejor foto juntos */
+    background: linear-gradient(rgba(252, 248, 247, 0.85), rgba(252, 248, 247, 0.85)), url('tu-foto-de-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Encabezado */
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-acento);
+    margin-bottom: 40px;
+}
+
+/* Sección del Contador */
+.contador-seccion {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    margin-bottom: 50px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.contador-titulo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.reloj {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.tiempo-bloque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numero {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-principal);
+}
+
+.etiqueta {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    color: #888;
+}
+
+/* Botón de Entrada */
+.btn-entrar {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: white;
+    background-color: var(--color-principal);
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn-entrar:hover {
+    background-color: var(--color-acento);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+    header h1 { font-size: 2.2rem; }
+    .numero { font-size: 1.8rem; }
+    .contador-seccion { padding: 20px; }
+}
+
+
+
+.seccion-anotaciones {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+}
+
+.lado-personal {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+textarea {
+    height: 150px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.centro-control {
+    text-align: center;
+}
+
+.btn-aniversario {
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 50px;
+}
+
+
+/* Este es el contenedor padre que debe tener a los tres elementos adentro */
+.contenedor-anotaciones {
+    display: flex;             /* Esto pone todo en una fila */
+    justify-content: center;   /* Centra todo el bloque */
+    align-items: center;       /* Alinea verticalmente */
+    gap: 40px;                 /* Espacio entre las columnas */
+    margin-top: 30px;
+}
+
+/* Ajuste para que los cuadritos no sean tan anchos */
+.lado-personal {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.anotador-oculto {
+    display: none; /* Por defecto, no se ve */
+    margin-top: 10px;
+}
+
+.anotador-oculto.activo {
+    display: block; /* Cuando le agregamos esta clase, se muestra */
+}
+
+
+
+.contenedor-anotaciones {
+    display: flex;         /* Pone los elementos en fila */
+    justify-content: center; /* Centra el conjunto en la pantalla */
+    align-items: flex-start; /* Alinea los botones arriba */
+    gap: 40px;             /* Espacio entre Cami, el botón central y Jorge */
+    margin-top: 30px;
+}
+
+.seccion-individual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.anotador-oculto {
+    display: none;        /* Oculto por defecto */
+    margin-top: 10px;
+}
+
+.anotador-oculto.activo {
+    display: flex;        /* Se muestra cuando se activa */
+    flex-direction: column;
+}
+
+/* Un poquito de estilo para que el botón central no se vea tan básico */
+.btn-central {
+    margin-top: 5px;      /* Alineación óptica con los otros botones */
+    padding: 10px 20px;
+}
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Color oscuro transparente */
+    backdrop-filter: blur(5px); /* ESTO ES EL DIFUMINADO */
+}
+
+.modal-contenido {
+    background-color: white;
+    margin: 15% auto; /* Centrado vertical y horizontal */
+    padding: 20px;
+    width: 400px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* Estilo unificado para los tres botones */
+.btn-desplegable, .btn-central {
+    background-color: #332e2e; /* El mismo tono oscuro del botón central */
+    color: white;             /* Texto blanco */
+    border: none;             /* Sin borde */
+    padding: 12px 24px;       /* Espaciado interno para que no se vean apretados */
+    border-radius: 25px;      /* Bordes bien redondeados */
+    font-size: 14px;          /* Tamaño legible */
+    cursor: pointer;          /* Cursor de mano al pasar por encima */
+    transition: background 0.3s; /* Efecto suave al pasar el mouse */
+}
+
+/* Efecto al pasar el mouse (hover) para que se sientan interactivos */
+.btn-desplegable:hover, .btn-central:hover {
+    background-color: #4a4545; /* Un tono un poquito más claro al pasar el mouse */
+}
+
+/* Ajuste específico para el contenedor si necesitas más espacio */
+.contenedor-anotaciones {
+    gap: 20px; /* Reduje un poco el espacio para que se vea más compacto */
+}
+
+.modal-contenido {
+    background-color: white;
+    margin: 10% auto; 
+    padding: 30px; /* Más espacio interior */
+    width: 90%; 
+    max-width: 500px; /* Tamaño máximo para que no se vea gigante */
+    border-radius: 20px; /* Bordes más redondeados */
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2); /* Sombra elegante */
+    position: relative;
+}
+
+/* Estilo del Textarea */
+#texto-anotacion {
+    width: 100%;
+    height: 200px;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: inherit;
+    resize: none; /* Evita que el usuario lo deforme */
+    box-sizing: border-box;
+}
+
+/* Estilo del botón "Guardar" para que coincida con los otros */
+.modal-contenido button {
+    background-color: #332e2e;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* Estilo para la X de cerrar */
+.cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}

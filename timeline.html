@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia - Línea de Tiempo</title>
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="timeline-style.css">
+</head>
+<body>
+
+ <!-- Botón flotante para regresar al Home si lo desean -->
+    <a href="index.html" class="btn-volver">← Inicio</a>
+
+    <main class="timeline-wrapper">
+        <header class="timeline-header">
+            <h1>Nuestros Momentos</h1>
+            <p>Un recorrido por las páginas de nuestra historia</p>
+            
+            <!-- 🌟 NUEVO BOTÓN PARA IR AL FORMULARIO 🌟 -->
+            <a href="agregar.html" class="btn-crear-momento">+ Añadir un Nuevo Recuerdo</a>
+        </header>
+
+        <!-- El contenedor de la línea de tiempo (se llena con JS) -->
+        <div class="timeline-container" id="timeline">
+            <div class="linea-central"></div>
+        </div>
+    </main>
+
+   
+
+    <script src="timeline-script.js"></script>
+</body>
+</html>

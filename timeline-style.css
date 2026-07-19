@@ -1,0 +1,400 @@
+:root {
+    --color-fondo: #fcf8f7;
+    --color-principal: #3a3232;
+    --color-acento: #d4a373;
+    --color-tarjeta: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-principal);
+    padding: 40px 20px;
+}
+
+.btn-volver {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: var(--color-principal);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    z-index: 10;
+}
+
+.btn-volver:hover {
+    color: var(--color-acento);
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.timeline-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.timeline-header p {
+    font-style: italic;
+    color: #888;
+}
+
+/* Contenedor e hilo central */
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+
+
+.linea-central {
+    position: absolute;
+    width: 2px;
+    background-color: var(--color-acento);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Bloques de eventos */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+/* Clase para la animación al aparecer */
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alternancia izquierda / derecha */
+.timeline-item.izquierda {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.derecha {
+    left: 50%;
+    text-align: left;
+}
+
+/* Tarjetas de contenido */
+.timeline-contenido {
+    background-color: var(--color-tarjeta);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+    position: relative;
+    /* Aquí va la sombra */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    
+    /* Si quieres que se vea aún mejor, puedes añadir estos ajustes: */
+    border-radius: 8px; /* Redondea un poco las esquinas */
+    padding: 15px;
+}
+
+.timeline-contenido img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 15px;
+    /* Aquí va la sombra */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    
+    /* Si quieres que se vea aún mejor, puedes añadir estos ajustes: */
+    border-radius: 8px; /* Redondea un poco las esquinas */
+    padding: 15px;
+}
+
+.fecha-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-acento);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.timeline-contenido h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.timeline-contenido p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Nodos/Puntitos en la línea central */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-fondo);
+    border: 3px solid var(--color-acento);
+    border-radius: 50%;
+    top: 30px;
+    z-index: 2;
+}
+
+.timeline-item.izquierda::after {
+    right: -8px;
+}
+
+.timeline-item.derecha::after {
+    left: -8px;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .linea-central {
+        left: 20px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 10px;
+        text-align: left !important;
+    }
+    .timeline-item.derecha {
+        left: 0;
+    }
+    .timeline-item::after {
+        left: 12px !important;
+    }
+}
+
+/* --- Estilos del Creador de Momentos --- */
+.creador-contenedor {
+    max-width: 600px;
+    margin: 80px auto 40px auto;
+    padding: 0 20px;
+}
+
+.creador-tarjeta {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.creador-tarjeta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.creador-tarjeta > p {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.grupo-input label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-principal);
+    letter-spacing: 0.5px;
+}
+
+.grupo-input input, 
+.grupo-input textarea {
+    font-family: 'Montserrat', sans-serif;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fafafa;
+    font-size: 0.95rem;
+    color: var(--color-principal);
+    transition: all 0.3s;
+}
+
+.grupo-input input:focus, 
+.grupo-input textarea:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(212, 163, 115, 0.15);
+}
+
+.btn-generar {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-generar:hover {
+    background-color: var(--color-acento);
+}
+
+/* Caja de resultado */
+.resultado-contenedor {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f5f0eb;
+    border-left: 4px solid var(--color-acento);
+    border-radius: 4px;
+}
+
+.resultado-contenedor p {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.resultado-contenedor pre {
+    background-color: #2e2626;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.btn-copiar {
+    font-family: 'Montserrat', sans-serif;
+    background: transparent;
+    border: 1px solid var(--color-principal);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-copiar:hover {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn-crear-momento {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #3a3232; /* El color oscuro que ya usás */
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-crear-momento:hover {
+    background-color: #524646;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.timeline-contenido {
+    position: relative; /* Permite posicionar las acciones de forma absoluta */
+}
+
+.timeline-acciones {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.btn-accion {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 4px;
+    border-radius: 4px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-accion:hover {
+    transform: scale(1.2);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Definición de la animación */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Opcional: hace que suba un poco al aparecer */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicar la animación a los elementos que quieras */
+
+.timeline-container,
+.contador-seccion,
+.creador-tarjeta,
+.hero-container {
+    animation: aparecer 1s ease-out forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.2s; }
+.timeline-item:nth-child(2) { animation-delay: 0.4s; }
+.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+
+@media (max-width: 768px) {
+    .btn-borrar-recuerdo {
+        left: auto !important; /* Quita el left que pone el JS */
+        right: 10px !important; /* Fuerza a que esté siempre a la derecha */
+    }
+}

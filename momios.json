@@ -1,0 +1,20 @@
+[
+  {
+    "fecha": "15 de Mayo, 2024",
+    "titulo": "El día que todo empezó",
+    "descripcion": "Nuestra primera cita oficial. Fuimos por ese café frío que tanto te gusta y terminamos hablando por horas en el parque hasta que se hizo de noche.",
+    "imagen": "primera-cita.jpg"
+  },
+  {
+    "fecha": "22 de Julio, 2024",
+    "titulo": "Primer viaje juntos",
+    "descripcion": "Nos escapamos el fin de semana. Nos perdimos buscando el hotel, llovió a cántaros, pero nos reímos como nunca. La mejor aventura.",
+    "imagen": "viaje.jpg"
+  },
+  {
+    "fecha": "14 de Febrero, 2025",
+    "titulo": "San Valentín cocinando",
+    "descripcion": "Intentamos hacer pasta casera y quedó un desastre total, pero terminamos pidiendo pizza y viendo nuestra película favorita por quinta vez.",
+    "imagen": "cocinando.jpg"
+  }
+]

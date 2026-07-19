@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Nuevo Recuerdo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="timeline-style.css">
+</head>
+<body>
+
+    <!-- Botón para volver a la línea de tiempo -->
+    <a href="timeline.html" class="btn-volver">← Ver Línea de Tiempo</a>
+
+    <section class="creador-contenedor" style="margin-top: 50px;">
+        <div class="creador-tarjeta">
+            <h2>Añadir un Nuevo Recuerdo</h2>
+            <p>Completen los campos para guardar la nueva anécdota en la base de datos.</p>
+            
+            <form id="form-recuerdo" enctype="multipart/form-data">
+                <div class="grupo-input">
+                    <label for="nueva-fecha">¿Cuándo pasó?</label>
+<input type="date" id="nueva-fecha" required>
+                </div>
+                
+                <div class="grupo-input">
+                    <label for="nuevo-titulo">Título del momento</label>
+                    <input type="text" id="nuevo-titulo" placeholder="Ej: Fuimos al cine" required>
+                </div>
+                
+                <div class="grupo-input">
+                    <label for="nueva-desc">¿Qué pasó? (Su historia)</label>
+                    <textarea id="nueva-desc" rows="4" placeholder="zzz" required></textarea>
+                </div>
+                
+                <div class="grupo-input">
+        <label for="fotoInput">Subir foto (Opcional)</label>
+        <!-- Agregamos el name="foto" aquí para que coincida con el servidor -->
+        <input type="file" id="fotoInput" name="foto" accept="image/*">
+    </div>
+
+    
+
+    <button type="submit" class="btn-generar">Guardar Recuerdo</button>
+</form>
+        </div>
+    </section>
+
+    <!-- Vinculamos el mismo script que ya tiene la lógica del submit -->
+    <script src="timeline-script.js"></script>
+</body>
+</html>
