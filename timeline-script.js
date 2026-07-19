@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Lógica del Timeline ---
     const contenedor = document.getElementById("timeline");
     if (contenedor) {
-        fetch("http://localhost:3000/api/mensajes/todos")
+        fetch("https://cami-jorge.onrender.com/api/mensajes/todos")
             .then(response => response.json())
             .then(datos => {
                 for (let i = datos.length - 1; i >= 0; i--) {
@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             try {
-                const respuesta = await fetch('http://localhost:3000/api/mensajes/guardar', {
-                    method: 'POST',
-                    body: formData 
-                });
+                const respuesta = await fetch('https://cami-jorge.onrender.com/api/mensajes/guardar', {
+    method: 'POST',
+    body: formData
+});;
 
                 if (respuesta.ok) {
                     alert('¡Anécdota guardada con éxito! 🎁');
@@ -90,14 +90,13 @@ function activarAnimacionScroll() {
 async function eliminarMomento(id) {
     if (confirm("¿Borrar este recuerdo? 🥺")) {
         try {
-            const respuesta = await fetch(`http://localhost:3000/api/mensajes/todos/eliminar/${id}`, { method: 'POST' });
-            if (respuesta.ok) window.location.reload(); 
+const respuesta = await fetch(`https://cami-jorge.onrender.com/api/mensajes/todos/eliminar/${id}`, { method: 'POST' });            if (respuesta.ok) window.location.reload(); 
         } catch (error) { console.error("Error:", error); }
     }
 }
 
 async function cargarRecuerdos() {
-    const respuesta = await fetch('http://localhost:3000/api/mensajes/todos');
+    const respuesta = await fetch('https://cami-jorge.onrender.com/api/mensajes/todos');
     const todos = await respuesta.json();
     
     // Filtramos para obtener SOLO los recuerdos normales
