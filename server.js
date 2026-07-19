@@ -1,17 +1,22 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors'); 
-const Mensaje = require('./models/Mensaje'); // <--- ¡Asegúrate de tener esta línea!
-// ...
+const Mensaje = require('./models/Mensaje'); 
 require('dotenv').config();
 
 const app = express();
+
+// --- CORRECCIÓN: Middlewares al principio para aceptar peticiones externas ---
+app.use(cors()); 
+app.use(express.json());
+// ----------------------------------------------------------------------------
 
 const path = require('path');
 app.use(express.static(path.join(__dirname, '/')));
 
 // Ruta para pedir mensajes de un tipo específico
-app.get('/api/buscar-por-tipo/:tipo', async (req, res) => {    try {
+app.get('/api/buscar-por-tipo/:tipo', async (req, res) => {   
+    try {
         const tipoBuscado = req.params.tipo;
         const mensajes = await Mensaje.find({ tipo: tipoBuscado });
         res.json(mensajes);
@@ -20,10 +25,6 @@ app.get('/api/buscar-por-tipo/:tipo', async (req, res) => {    try {
     }
 });
 
-
-app.use(cors()); 
-app.use(express.json());
-
 // 🔍 MIDDLEWARE DE DIAGNÓSTICO: Nos va a mostrar en la terminal qué URLs llegan
 app.use((req, res, next) => {
     console.log("-----------------------------------------");
@@ -31,9 +32,7 @@ app.use((req, res, next) => {
     next();
 });
 
-
 app.use('/uploads', express.static('uploads'));
-
 
 // 🔥 Ruta global de emergencia para borrar directo en server.js
 app.post('/api/mensajes/todos/eliminar/:id', async (req, res) => {
@@ -63,10 +62,10 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('¡Conexión exitosa a MongoDB Atlas! 🌌'))
   .catch(err => console.error('Error al conectar a la base de datos: ❌', err));
 
-// Ruta de prueba
+// Ruta de prueba (comentada)
 //app.get('/', (req, res) => {
   //res.send('El servidor de la cápsula del tiempo está corriendo 🚀');
-//}); //
+//}); 
 
 // 🌟 DECLARADO UNA SOLA VEZ ACÁ ABAJO 🌟
 const PORT = process.env.PORT || 3000;
@@ -74,4 +73,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`¡Servidor corriendo y escuchando con éxito en http://localhost:${PORT}! 🚀`);
 });
-
