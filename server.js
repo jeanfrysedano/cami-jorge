@@ -7,6 +7,9 @@ require('dotenv').config();
 
 const app = express();
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, '/')));
+
 // Ruta para pedir mensajes de un tipo específico
 app.get('/api/buscar-por-tipo/:tipo', async (req, res) => {    try {
         const tipoBuscado = req.params.tipo;
@@ -61,9 +64,9 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.error('Error al conectar a la base de datos: ❌', err));
 
 // Ruta de prueba
-app.get('/', (req, res) => {
-  res.send('El servidor de la cápsula del tiempo está corriendo 🚀');
-});
+//app.get('/', (req, res) => {
+  //res.send('El servidor de la cápsula del tiempo está corriendo 🚀');
+//}); //
 
 // 🌟 DECLARADO UNA SOLA VEZ ACÁ ABAJO 🌟
 const PORT = process.env.PORT || 3000;
