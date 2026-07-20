@@ -69,8 +69,7 @@ function agregarTarjetaAlDOM(momento, index) {
             <span class="fecha-tag">${momento.fechaCreacion ? new Date(momento.fechaCreacion).toLocaleDateString('es-AR', { timeZone: 'UTC' }) : 'Sin fecha'}</span>
             <h3>${momento.autor}</h3>
             <p>${momento.texto}</p>
-            ${momento.foto ? `<img src="https://cami-jorge.onrender.com/uploads/${momento.foto}" style="max-width: 100%; border-radius: 8px; margin-top: 10px;">` : ''}
-        </div>
+            ${momento.foto ? `<img src="${momento.foto.startsWith('http') ? momento.foto : 'https://cami-jorge.onrender.com/uploads/' + momento.foto}" style="max-width: 100%; border-radius: 8px; margin-top: 10px;">` : ''}        </div>
     `;
     contenedor.prepend(item);
 }
