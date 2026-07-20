@@ -2,12 +2,30 @@ const express = require('express');
 const router = express.Router();
 const Mensaje = require('../models/Mensaje');
 const multer = require('multer'); // <--- 1. AGREGA ESTO
-const storage = multer.diskStorage({
-  destination: 'uploads/',
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
-  }
+// Configuración de Cloudinary
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'recuerdos',
+    allowed_formats: ['jpg', 'png', 'jpeg'],
+  },
+});
+
+//const storage = multer.diskStorage({
+  //destination: 'uploads/',
+  //filename: (req, file, cb) => {
+   // cb(null, Date.now() + '-' + file.originalname);
+  //}
+//});
 const upload = multer({ storage: storage });
 // 1. RUTA PARA GUARDAR
 router.post('/guardar', upload.single('foto'), async (req, res) => {
@@ -27,8 +45,7 @@ router.post('/guardar', upload.single('foto'), async (req, res) => {
         autor, 
         texto,
         fechaCreacion: fechaFinal,
-        foto: req.file ? req.file.filename : null // <--- 3. SOLO ESTA LÍNEA NUEVA
-    });
+        foto: req.file ? req.file.path : null    });
 
     console.log("Mensaje a guardar en MongoDB:", nuevoMensaje); // TAMBIÉN ESTO
     
